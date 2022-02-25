@@ -229,15 +229,23 @@
                         to let me know. I will do my best to respond back as soon as possible 😊. The quickest way to reach out to me is 
                         via email. </p>
                     <!-- form fields -->
-                    <form method="post" name="Contact Form" data-netlify="true">
-                        <input type="text" class="form-control form-control-lg" placeholder="Name">
-                        <input type="email" class="form-control mt-3" placeholder="Email">
-                        <input type="text" class="form-control mt-3" placeholder="Subject">
+                    <form name="Contact Form">
+                        <input id="contact_name" type="text" class="form-control form-control-lg" placeholder="Name" required>
+                        <input id="contact_email" type="email" class="form-control mt-3" placeholder="Email" required>
+                        <input id="contact_subject" type="text" class="form-control mt-3" placeholder="Subject" required>
                         <div class="mb-3 mt-3">
-                            <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Type your message here"></textarea>
+                            <textarea id="contact_message" class="form-control" rows="5" id="comment" name="text" placeholder="Type your message here" required></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-success mt-3">Contact Me</button> 
+                        <script>
+                            function sendMail() {
+                                var name = document.getElementById("contact_name").value;
+                                var email = document.getElementById("contact_email").value;
+                                var subject = document.getElementById("contact_subject").value;
+                                var body = document.getElementById("contact_message").value;
+                                window.location.href =  "mailto:maclakun@hotmail.com?subject=" + document.getElementById('contact_subject').value + "&body=" + document.getElementById('contact_message').value;
+                            }
+                        </script>    
+                        <a class="btn btn-success mt-3" onclick="sendMail()">Contact Me</a>
                     </form>
                           
                 </div>
@@ -251,7 +259,7 @@
         <div class="container-fluid">
             <!-- social media icons -->
             <div class="social-awesomeicons mt-4">
-                <a href="mailto:maclakun@hotmail.com" target="_blank"></a><i class="fab fa-solid fa-envelope"></i></a>
+                <a href="mailto:" target="_blank"></a><i class="fab fa-solid fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/laura-valencia-gracia-160109120/" target="_blank"><i class="fab fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/kit57" target="_blank"><i class="fab fa-brands fa-github"></i></a>
                 <a href="https://www.kaggle.com/lvalencia" target="_blank"><i class="fab fa-brands fa-kaggle"></i></a>
